@@ -6,8 +6,7 @@ describe "zones/show" do
       :visited => false,
       :x => "9.99",
       :y => "9.99",
-      :z => "9.99",
-      :parent_id => 1
+      :z => "9.99"
     ))
   end
 
@@ -18,6 +17,5 @@ describe "zones/show" do
     rendered.should match(/9.99/)
     rendered.should match(/9.99/)
     rendered.should match(/9.99/)
-    rendered.should match(/1/)
   end
 end

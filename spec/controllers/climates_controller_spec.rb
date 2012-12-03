@@ -120,10 +120,10 @@ describe ClimatesController do
         assigns(:climate).should eq(climate)
       end
 
-      it "redirects to the climate" do
+      it "redirects to the climates" do
         climate = Climate.create! valid_attributes
         put :update, {:id => climate.to_param, :climate => valid_attributes}, valid_session
-        response.should redirect_to(climate)
+        response.should redirect_to(climates_path)
       end
     end
 

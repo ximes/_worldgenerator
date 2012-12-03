@@ -6,8 +6,7 @@ describe "zones/new" do
       :visited => false,
       :x => "9.99",
       :y => "9.99",
-      :z => "9.99",
-      :parent_id => 1
+      :z => "9.99"
     ).as_new_record)
   end
 
@@ -20,7 +19,6 @@ describe "zones/new" do
       assert_select "input#zone_x", :name => "zone[x]"
       assert_select "input#zone_y", :name => "zone[y]"
       assert_select "input#zone_z", :name => "zone[z]"
-      assert_select "input#zone_parent_id", :name => "zone[parent_id]"
     end
   end
 end
