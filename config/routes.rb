@@ -1,4 +1,7 @@
 Worldgenerator::Application.routes.draw do
+  resources :climates
+  match "climates/:id/clone" => "climates#clone" , :as => "clone_climate", :via => "PUT"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
