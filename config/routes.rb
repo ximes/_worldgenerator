@@ -1,4 +1,7 @@
 Worldgenerator::Application.routes.draw do
+  resources :zones
+
+
   resources :climates
   match "climates/:id/clone" => "climates#clone" , :as => "clone_climate", :via => "PUT"
 
@@ -51,7 +54,7 @@ Worldgenerator::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'zones#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203000247) do
+ActiveRecord::Schema.define(:version => 20121203020950) do
 
   create_table "climates", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20121203000247) do
     t.decimal  "z"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "zones", :force => true do |t|
+    t.boolean  "visited"
+    t.decimal  "x"
+    t.decimal  "y"
+    t.decimal  "z"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
