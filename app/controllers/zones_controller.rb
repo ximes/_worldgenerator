@@ -25,10 +25,10 @@ class ZonesController < ApplicationController
     climates.each do |climate|
       climate[:distance] = Math::sqrt((climate.x - @zone.x)**2 + (climate.y - @zone.y)**2)
     end
-    climates.keep_if {|v| v[:radius] >= v[:distance]}
+    climates.keep_if {|v| v[:radius] >= v[:distance] || v[:default]}
 
     climates.sort_by { |h| h[:distance] }
-    @climates = climates.first(4)
+    @climates = climates
 
     respond_to do |format|
       format.html # show.html.erb
