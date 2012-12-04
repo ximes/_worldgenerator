@@ -1,11 +1,11 @@
 class ZonesController < ApplicationController
   # GET /zones
   # GET /zones.json
-  def index
+  def map
     @zones = Zone.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # map.html.erb
       format.json { render json: @zones }
     end
   end
@@ -76,7 +76,7 @@ class ZonesController < ApplicationController
     @zone.destroy
 
     respond_to do |format|
-      format.html { redirect_to zones_url }
+      format.html { redirect_to map_url }
       format.json { head :no_content }
     end
   end
