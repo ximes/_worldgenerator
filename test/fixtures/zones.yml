@@ -1,0 +1,52 @@
+zones_001:
+  x: 0
+  y: 0
+  z: 0
+zones_002:
+  x: 10
+  y: 10
+  z: 0
+zones_003:
+  x: -10
+  y: -10
+  z: 0
+zones_004:
+  x: 10
+  y: -10
+  z: 0
+zones_005:
+  x: -10
+  y: 10
+  z: 0
+zones_006:
+  x: 0
+  y: 1
+  z: 0
+zones_007:
+  x: 0
+  y: -1
+  z: 0
+zones_008:
+  x: -1
+  y: 0
+  z: 0
+zones_009:
+  x: 1
+  y: 0
+  z: 0
+zones_010:
+  x: 50
+  y: 50
+  z: 0
+zones_011:
+  x: -50
+  y: -50
+  z: 0
+zones_012:
+  x: 50
+  y: -50
+  z: 0
+zones_013:
+  x: -50
+  y: 50
+  z: 0
