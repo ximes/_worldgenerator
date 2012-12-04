@@ -1,8 +1,18 @@
 class ZonesController < ApplicationController
   # GET /zones
   # GET /zones.json
+
   def map
+
+    @climates = Climate.all
+    #check boundaries
+    bound_x=Zone.maximum(:x)-Zone.minimum(:x)
+    bound_y=Zone.maximum(:y)-Zone.minimum(:y)
+
     @zones = Zone.all
+    
+    @boundaries = []
+    @boundaries = {:x => bound_x, :y => bound_y}
 
     respond_to do |format|
       format.html # map.html.erb
