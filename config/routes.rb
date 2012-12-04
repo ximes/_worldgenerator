@@ -1,6 +1,8 @@
 Worldgenerator::Application.routes.draw do
+  match "map" => "zones#map" , :as => "map", :via => "GET"
   resources :zones
-
+  match "zones/:x/:y/:z" => "zones#index" , :as => "zone_select", :via => "GET"
+  
 
   resources :climates
   match "climates/:id/clone" => "climates#clone" , :as => "clone_climate", :via => "PUT"
