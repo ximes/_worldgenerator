@@ -10,11 +10,36 @@ class ZonesController < ApplicationController
     end
   end
 
+  def index
+    @x = params[:x].blank? ? 0 : params[:x]
+    @y = params[:y].blank? ? 0 : params[:y]
+    @z = params[:z].blank? ? 0 : params[:z]
+
+    @zone = Zone.find_or_create_by_x_and_y_and_z(@x, @y, @z)
+    @zone.visited=true
+    @zone.save
+
+    @climates = []
+    climates_list = []
+    climates=Climate.all()
+    climates.each do |climate|
+      climate[:distance] = Math::sqrt((climate.x - @zone.x)**2 + (climate.y - @zone.y)**2)
+    end
+    climates.keep_if {|v| v[:radius] >= v[:distance]}
+
+    climates.sort_by { |h| h[:distance] }
+    @climates = climates.first(4)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @zone }
+    end
+  end
+
   # GET /zones/1
   # GET /zones/1.json
   def show
     @zone = Zone.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @zone }

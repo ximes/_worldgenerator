@@ -1,30 +1,29 @@
-<h1>Listing zones</h1>
-
-<table>
+<div class="climates" style="width:100%;height:100%; top:0; position:absolute;left:0;z-index:0;">
+<% @climates.each do |climate| %>
+  <%
+  v = (Math::E**(-(climate[:scale]/10000)*(climate[:distance]**2))*100).to_i
+  r = Random.new
+  (1..v).each do |i| %>
+  <div style="display:block; float:left;background-color:<%= climate[:color] %>;width:10%;height:10%;"><%= climate[:name] %></div>
+  <% 
+  end
+  end %>
+</div>
+<table style="width:20%; height:20%;position:absolute;top:35%; left:40%; margin:auto;">
   <tr>
-    <th>Visited</th>
-    <th>X</th>
-    <th>Y</th>
-    <th>Z</th>
-    <th>Parent</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td></td>
+    <td><%= link_to "North", zone_select_path(@zone.x.to_int,@zone.y.to_int+1,@zone.z.to_int) %></td>
+    <td></td>
   </tr>
-
-<% @zones.each do |zone| %>
   <tr>
-    <td><%= zone.visited %></td>
-    <td><%= zone.x %></td>
-    <td><%= zone.y %></td>
-    <td><%= zone.z %></td>
-    <td><%= link_to 'Show', zone %></td>
-    <td><%= link_to 'Edit', edit_zone_path(zone) %></td>
-    <td><%= link_to 'Destroy', zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to "West", zone_select_path(@zone.x.to_int-1,@zone.y.to_int,@zone.z.to_int) %></td>
+    <td><%= @zone.x.to_int %>, <%= @zone.y.to_int %>, <%= @zone.z.to_int %></td>
+    <td><%= link_to "East", zone_select_path(@zone.x.to_int+1,@zone.y.to_int,@zone.z.to_int) %></td>
   </tr>
-<% end %>
+  <tr>
+    <td></td>
+    <td><%= link_to "South", zone_select_path(@zone.x.to_int,@zone.y.to_int-1,@zone.z.to_int) %></td>
+    <td></td>
+  </tr>
 </table>
-
-<br />
-
-<%= link_to 'New Zone', new_zone_path %>
+</div>
