@@ -17,3 +17,6 @@
 Guardfile
 .DS_Store
 :environment
+
+# Ignore Sublime Text project files
+*.sublime-*
