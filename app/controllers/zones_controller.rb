@@ -10,7 +10,7 @@ class ZonesController < ApplicationController
     bound_y=Zone.maximum(:y)-Zone.minimum(:y)
 
     @zones = Zone.all
-    
+
     @boundaries = []
     @boundaries = {:x => bound_x, :y => bound_y}
 
@@ -44,29 +44,29 @@ class ZonesController < ApplicationController
 
     if climates.size <= 2
 
-    #   #check boundaries
-        bound_x=Range.new(Zone.minimum("x").to_i, Zone.maximum("x").to_i)
-        bound_y=Range.new(Zone.minimum("y").to_i, Zone.maximum("y").to_i)
-        bound_z=Range.new(Zone.minimum("z").to_i, Zone.maximum("z").to_i)
+      #   #check boundaries
+      bound_x=Range.new(Zone.minimum("x").to_i, Zone.maximum("x").to_i)
+      bound_y=Range.new(Zone.minimum("y").to_i, Zone.maximum("y").to_i)
+      bound_z=Range.new(Zone.minimum("z").to_i, Zone.maximum("z").to_i)
 
-    #     #check directions
-        dir_x = @x.to_i>=0 ? 1 : -1
-        dir_y = @y.to_i>=0 ? 1 : -1
-        dir_z = @z.to_i>=0 ? 1 : -1
+      #     #check directions
+      dir_x = @x.to_i>=0 ? 1 : -1
+      dir_y = @y.to_i>=0 ? 1 : -1
+      dir_z = @z.to_i>=0 ? 1 : -1
 
-        @bound = "s"
-        random_value = ((Random.rand(bound_x) + Random.rand(bound_y) + Random.rand(bound_z))/3).to_i.abs
-        
+      @bound = "s"
+      random_value = ((Random.rand(bound_x) + Random.rand(bound_y) + Random.rand(bound_z))/3).to_i.abs
+
         new_climate=Climate.new()
         new_climate.name = rand(36**16).to_s(36)
         new_climate.x = @x+dir_x*Random.rand(bound_x).to_i.abs
         new_climate.y = @y+dir_y*Random.rand(bound_y).to_i.abs
         new_climate.z = @z+dir_z*Random.rand(bound_z).to_i.abs
         new_climate.color = "##{Random.rand(255).to_s(16)}#{Random.rand(255).to_s(16)}#{Random.rand(255).to_s(16)}"
-        new_climate.radius = Random.rand(random_value) 
+        new_climate.radius = Random.rand(random_value)
         new_climate.scale = Random.rand(100)/10
-        new_climate.save()
-    end
+                      new_climate.save()
+                      end
 
 
 
