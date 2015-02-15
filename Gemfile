@@ -21,6 +21,8 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'bourbon', '~> 4.2.0'
+  gem 'angularjs-rails', '~> 1.3.10'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
