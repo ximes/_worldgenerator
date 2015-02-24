@@ -1,0 +1,46 @@
+<h1>Listing climates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Probability</th>
+    <th>Color</th>
+    <th>Radius</th>
+    <th>Scale</th>
+    <th>Description</th>
+    <th>Interacts</th>
+    <th>Overlaps</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
+    <th>Default</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @climates.each do |climate| %>
+  <tr>
+    <td><%= climate.name %></td>
+    <td><%= climate.probability %></td>
+    <td><%= climate.color %></td>
+    <td><%= climate.radius %></td>
+    <td><%= climate.scale %></td>
+    <td><%= climate.description %></td>
+    <td><%= climate.interacts %></td>
+    <td><%= climate.overlaps %></td>
+    <td><%= climate.x %></td>
+    <td><%= climate.y %></td>
+    <td><%= climate.z %></td>
+    <td><%= climate.default %></td>
+    <td><%= link_to 'Show', climate %></td>
+    <td><%= link_to 'Clone', clone_climate_path(climate), method: :put %></td>
+    <td><%= link_to 'Edit', edit_climate_path(climate) %></td>
+    <td><%= link_to 'Destroy', climate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Climate', new_climate_path %>

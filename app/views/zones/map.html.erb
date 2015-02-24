@@ -1,0 +1,15 @@
+<%
+proportions=90;
+%>
+<div class="map-container">
+<div class="map-zone-container" style="width:<%= proportions %>%;height:<%= proportions %>%;top:<%= (100-proportions)/2 %>%;left:<%= (100-proportions)/2 %>%;">
+<% cell_size=(((proportions)/@boundaries[:x].to_f)).round(2) %>
+  <% @zones.each do |row| %>
+          <div class="map-zone" style="width:<%= cell_size %>%;height:<%= cell_size %>%;top:<%= 50-row[:y].to_f*cell_size %>%;left:<%= 50+row[:x].to_f*cell_size %>%;border:1px solid <%= row[:y].to_i == 0 && row[:x].to_i == 0 ? "red" : "black" %>;"><%= link_to row[:id], row, :target => "_blank" %></div>
+  <% end %>
+</div>
+ <% @climates.each do |c| %>
+   <div class="map-climate" style="width:<%= c[:radius]*2*cell_size %>%;height:<%= c[:radius]*2*cell_size %>%;top:<%= 50+(-c[:y]-c[:radius])*cell_size %>%; left:<%= 50+(c[:x]-c[:radius])*cell_size %>%;background: -moz-radial-gradient(center, ellipse cover,  <%= c[:color] %> 0%, rgba(8,172,224,1) 1%, rgba(255,255,255,0) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,<%= c[:color] %>),color-stop(100%,rgba(255,255,255,0)));background: -webkit-radial-gradient(center, ellipse cover,  <%= c[:color] %> 0%,rgba(255,255,255,0) 100%);background: -o-radial-gradient(center, ellipse cover,  <%= c[:color] %> 0%,rgba(255,255,255,0) 100%);background: -ms-radial-gradient(center, ellipse cover,  <%= c[:color] %> 0%,rgba(255,255,255,0) 100%);background: radial-gradient(ellipse at center,  <%= c[:color] %> 0%,rgba(255,255,255,0) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='<%= c[:color] %>', endColorstr='#00ffffff',GradientType=1 ); border:1px solid <%= c[:color] %>;"><%= c[:name] %></div>
+   <% end %>
+</div>

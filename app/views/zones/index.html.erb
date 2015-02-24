@@ -1,0 +1,31 @@
+<div id="zones_container" class="index-climates">
+<% 
+tot=100
+@climates.each do |climate| %>
+  <%
+  v = climate[:default] ? tot : (Math::E**(-(climate[:scale]/10000)*(climate[:distance]**2))*100).floor.to_i
+  tot-=v
+  (1..v).each do |i| %>
+  <div class="index-zone" style="background-color:<%= climate[:color] %>;"><%= climate[:name] %>,<%= i %></div>
+  <% 
+  end
+  end %>
+</div>
+<table class="index-navigator">
+  <tr>
+    <td></td>
+    <td><%= link_to "North", zone_select_path(@zone.x.to_int,@zone.y.to_int+1,@zone.z.to_int) %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= link_to "West", zone_select_path(@zone.x.to_int-1,@zone.y.to_int,@zone.z.to_int) %></td>
+    <td><%= @zone.x.to_int %>, <%= @zone.y.to_int %>, <%= @zone.z.to_int %></td>
+    <td><%= link_to "East", zone_select_path(@zone.x.to_int+1,@zone.y.to_int,@zone.z.to_int) %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= link_to "South", zone_select_path(@zone.x.to_int,@zone.y.to_int-1,@zone.z.to_int) %></td>
+    <td></td>
+  </tr>
+</table>
+</div>

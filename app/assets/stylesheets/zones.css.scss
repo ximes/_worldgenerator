@@ -1,0 +1,50 @@
+// Place all the styles related to the zones controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.map-zone-container, .map-zone-container:before, .map-zone-container:after{
+  display:block;
+  clear:both;
+  content:' ';
+  margin:auto;
+  position:absolute;
+  text-align:center;
+  z-index:100;
+  background-color:rgba(255,255,255,0.2);
+}
+.map-container{
+  width:100%;height:100%;
+  display:block;
+  position:absolute;
+  left:0;
+  top:0;
+  overflow:hidden;
+}
+.map-zone{
+  position:absolute;
+  font-size:5px;
+  line-height:5px;
+}
+.map-climate{
+  text-align:center;
+  vertical-align:middle;
+  position:absolute;
+  margin:auto;
+  color:black;
+  opacity:0.9;
+}
+
+
+.index-zone{
+  display:block; 
+  float:left;
+  width:10%;
+  height:10%;
+  }
+.index-navigator{
+  width:20%; text-align:center;height:20%;position:absolute;top:35%; left:40%; margin:auto;z-index:100; background-color:rgba(255,255,255,0.7);
+  border:4px solid black;
+}
+.index-climates{
+  width:100%;height:100%; top:0; position:absolute;left:0;z-index:0;
+}

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visited:</b>
+  <%= @zone.visited %>
+</p>
+
+<p>
+  <b>X:</b>
+  <%= @zone.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%= @zone.y %>
+</p>
+
+<p>
+  <b>Z:</b>
+  <%= @zone.z %>
+</p>
+
+
+<%= link_to 'Edit', edit_zone_path(@zone) %> |
+<%= link_to 'Back', zones_path %>
